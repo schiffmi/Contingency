@@ -2,6 +2,7 @@
 //
 // Return a ds-List populated with instances that collide with given rectangle, r noone
 {
+  var startTime = current_time;
   var x1, y1, x2, y2, obj, prec, notme, dsid, i;
   x1 = argument0;
   y1 = argument1;
@@ -23,6 +24,10 @@
   if (ds_list_empty(dsid)) {
     ds_list_destroy(dsid);
     dsid = noone;
-  } 
+  }
+
+  var endTime = current_time;
+
+  show_debug_message("Total time: " + string(endTime - startTime));
   return dsid;
 }
