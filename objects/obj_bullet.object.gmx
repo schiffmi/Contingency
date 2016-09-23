@@ -25,8 +25,45 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 600 / room_speed;
+            <string>SPEED_VECTOR =  700 / room_speed;
 
+destroy = false;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hspd = lengthdir_x(SPEED_VECTOR, direction);
+vspd = lengthdir_y(SPEED_VECTOR, direction);
+
+
+scr_bulletCheckCollisions();
+
+if (!destroy) {
+    x += hspd;
+    y += vspd;     
+}
+else {
+    instance_destroy();  
+}
 </string>
           </argument>
         </arguments>
@@ -49,12 +86,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_bulletCheckCollisions();
-if (instance_exists(self.id)) {
-    scr_bulletCollideWithWall();
-}
-
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
