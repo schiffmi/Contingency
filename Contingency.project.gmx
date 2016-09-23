@@ -11,13 +11,14 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_turret</sprite>
     <sprite>sprites\spr_bullet</sprite>
+    <sprite>sprites\spr_testTurret</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_room</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_check_keys.gml</script>
+    <script>scripts\scr_inputDetection.gml</script>
     <script>scripts\scr_playerCollideAndMove.gml</script>
     <script>scripts\scr_bulletCollideWithWall.gml</script>
     <script>scripts\scr_bulletCheckCollisions.gml</script>
@@ -30,8 +31,10 @@
     <object>objects\obj_turret</object>
     <object>objects\obj_projectile</object>
     <object>objects\obj_bullet</object>
+    <object>objects\obj_testTurret</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_projectileTesting</room>
     <room>rooms\rm_map1</room>
   </rooms>
   <help>

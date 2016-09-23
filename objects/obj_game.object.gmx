@@ -25,7 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_check_keys();
+            <string>enum INPUTS {
+    UP_PRESSED, UP_ANY,
+    DOWN_PRESSED, DOWN_ANY,
+    LEFT_PRESSED, LEFT_ANY,
+    RIGHT_PRESSED, RIGHT_ANY,
+    ESC_ANY,
+    LMB_CLICKED, LMB_ANY,
+    RESTART_ANY   
+};
+inputs = ds_map_create();
+scr_inputDetection();
 </string>
           </argument>
         </arguments>
@@ -48,12 +58,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_check_keys();
+            <string>scr_inputDetection();
 
-if (obj_game.esc) {
+if (inputs[? INPUTS.ESC_ANY]) {
     game_end();
 }
-if (obj_game.r) {
+if (inputs[? INPUTS.RESTART_ANY]) {
     room_restart();
 }
 </string>
