@@ -23,7 +23,8 @@ ds_map_destroy(collision_item_locations);
 //ds_list_destroy(collisions);
 
 var endTime = current_time;
-show_debug_message("Total time: " + string(endTime - startTime));
+if (endTime - startTime > 0)
+show_debug_message("Total time MIKE: " + string(endTime - startTime));
 return collisions;
 
 //if (nearest) {

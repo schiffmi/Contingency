@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Setup weapon */
+            <string>// setup player
+_playerSlot = 1;
+
+/* Setup weapon */
 depth = 1;
 direction = 0
 _turret = instance_create(x, y, obj_turret);
@@ -52,9 +55,22 @@ _turret._owner = self.id;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_speed = 300 / room_speed;
-_hSpd = _speed * (obj_game.d - obj_game.a);
-_vSpd = _speed * (obj_game.s - obj_game.w);
+            <string>_speedVector = 300 / room_speed;
+
+var d = inputdog_direction("up","down","left","right",_playerSlot);
+direction = d;
+if (d == -1) { _hspd = 0; _vspd = 0; }
+else {
+    show_debug_message("L: " +string(inputdog_analog("left",_playerSlot)));
+        show_debug_message("R: " + string(inputdog_analog("right",_playerSlot)));
+            show_debug_message("U: " + string(inputdog_analog("up",_playerSlot)));
+                show_debug_message("D: " + string(inputdog_analog("down",_playerSlot)));
+  var s = point_distance(0,0, -inputdog_analog("left",_playerSlot)+inputdog_analog("right",_playerSlot),
+                                -inputdog_analog("up",_playerSlot)+inputdog_analog("down",_playerSlot));
+   s *= _speedVector;
+   _hspd = lengthdir_x(s, d);
+   _vspd = lengthdir_y(s, d); 
+}
 
 /* Pointing Direction */
 direction = point_direction(x, y, mouse_x, mouse_y);

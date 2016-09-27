@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>direction = point_direction(x, y, mouse_x, mouse_y);
 
-if (obj_game.inputs[? INPUTS.LMB_CLICKED]) {
+if (mouse_check_button_pressed(mb_left)) {
     var bullet = instance_create(x, y, obj_bullet);
     bullet.direction = direction;
 }

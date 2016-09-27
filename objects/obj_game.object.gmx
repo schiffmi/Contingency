@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enum INPUTS {
+            <string>/*enum INPUTS {
     UP_PRESSED, UP_ANY,
     DOWN_PRESSED, DOWN_ANY,
     LEFT_PRESSED, LEFT_ANY,
@@ -35,7 +35,7 @@
     RESTART_ANY   
 };
 inputs = ds_map_create();
-scr_inputDetection();
+scr_inputDetection();*/
 </string>
           </argument>
         </arguments>
@@ -58,14 +58,14 @@ scr_inputDetection();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_inputDetection();
+            <string>/*scr_inputDetection();
 
 if (inputs[? INPUTS.ESC_ANY]) {
     game_end();
 }
 if (inputs[? INPUTS.RESTART_ANY]) {
     room_restart();
-}
+}*/
 </string>
           </argument>
         </arguments>

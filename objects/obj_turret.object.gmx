@@ -53,9 +53,8 @@ _owner = noone;
     image_angle = _owner.direction;
     x = _owner.x;
     y = _owner.y;
-    if (obj_game.leftMouseClicked)
-    show_debug_message("Left Mouse Clicked: " + string(obj_game.leftMouseClicked));
-    if (obj_game.leftMouseClicked) {
+    if (inputdog_pressed("shoot", _owner._playerSlot)) {
+        show_debug_message("Shooting");    
         var bullet = instance_create(x, y, obj_bullet);
         bullet.direction = image_angle;
     }

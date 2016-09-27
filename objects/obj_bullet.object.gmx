@@ -56,10 +56,12 @@ vspd = lengthdir_y(SPEED_VECTOR, direction);
 
 
 scr_bulletCheckCollisions();
-
+    
 if (!destroy) {
     x += hspd;
     y += vspd;     
+} else if (bbox_left &lt;= 0 || bbox_right &gt;= room_width || bbox_top &lt; 0 || bbox_bottom &gt; room_height) {
+    instance_destroy();
 }
 else {
     instance_destroy();  

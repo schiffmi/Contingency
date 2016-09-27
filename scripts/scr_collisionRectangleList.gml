@@ -27,7 +27,7 @@
   }
 
   var endTime = current_time;
-
+    if (endTime - startTime > 0)
   show_debug_message("Total time: " + string(endTime - startTime));
   return dsid;
 }
