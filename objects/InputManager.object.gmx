@@ -61,7 +61,7 @@ ds_map_copy(inputsDownLastFrame,inputsDown);
 rumbleEnabled = true;
 rumble = 0;
 
-analogDeadzone = 0.25; //when the analog value is big enough to be player input
+analogDeadzone = 0.2; //when the analog value is big enough to be player input
 analogDownDeadzone = 0.5; //when the analog val is enough to be a press
 
 event_perform(ev_alarm,0); // find gamepads

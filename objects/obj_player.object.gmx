@@ -31,6 +31,7 @@ _playerSlot = 1;
 /* Setup weapon */
 depth = 1;
 direction = 0
+_turretDirection = 0;
 _turret = instance_create(x, y, obj_turret);
 _turret._owner = self.id;
 </string>
@@ -60,11 +61,7 @@ _turret._owner = self.id;
 var d = inputdog_direction("up","down","left","right",_playerSlot);
 direction = d;
 if (d == -1) { _hspd = 0; _vspd = 0; }
-else {
-    show_debug_message("L: " +string(inputdog_analog("left",_playerSlot)));
-        show_debug_message("R: " + string(inputdog_analog("right",_playerSlot)));
-            show_debug_message("U: " + string(inputdog_analog("up",_playerSlot)));
-                show_debug_message("D: " + string(inputdog_analog("down",_playerSlot)));
+else {   
   var s = point_distance(0,0, -inputdog_analog("left",_playerSlot)+inputdog_analog("right",_playerSlot),
                                 -inputdog_analog("up",_playerSlot)+inputdog_analog("down",_playerSlot));
    s *= _speedVector;
@@ -73,8 +70,14 @@ else {
 }
 
 /* Pointing Direction */
-direction = point_direction(x, y, mouse_x, mouse_y);
 
+var rd = inputdog_direction("rup","rdown","rleft","rright",_playerSlot);
+if (rd != -1) {
+    var dif = angle_difference(rd, _turretDirection);
+    _turretDirection += median(-20, dif, 20);
+        
+    
+}
 scr_playerCollideAndMove();
 
 </string>

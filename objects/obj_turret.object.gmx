@@ -50,7 +50,7 @@ _owner = noone;
           <argument>
             <kind>1</kind>
             <string>if (_owner) {
-    image_angle = _owner.direction;
+    image_angle = _owner._turretDirection;
     x = _owner.x;
     y = _owner.y;
     if (inputdog_pressed("shoot", _owner._playerSlot)) {

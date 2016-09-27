@@ -30,10 +30,12 @@ inputdog_add_input("left",   vk_left,    inputdog_gp_left_stick_left);
 inputdog_add_input("right",  vk_right,   inputdog_gp_left_stick_right);
 inputdog_add_input("up",     vk_up,      inputdog_gp_left_stick_up);
 inputdog_add_input("down",   vk_down,    inputdog_gp_left_stick_down);
-inputdog_add_input("shoot",  ord("G"),   gp_face1);
-//inputdog_add_input("shoot",   ord("F"),   gp_face1);
+inputdog_add_input("shoot",  vk_lcontrol,   gp_shoulderrb);
 
-
+inputdog_add_input("rleft",   noone,    inputdog_gp_right_stick_left);
+inputdog_add_input("rright",  noone,   inputdog_gp_right_stick_right);
+inputdog_add_input("rup",     noone,      inputdog_gp_right_stick_up);
+inputdog_add_input("rdown",   noone,    inputdog_gp_right_stick_down);
 
 </string>
           </argument>
