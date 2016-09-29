@@ -53,9 +53,10 @@ _owner = noone;
     image_angle = _owner._turretDirection;
     x = _owner.x;
     y = _owner.y;
-    if (inputdog_pressed("shoot", _owner._playerSlot)) {
-        show_debug_message("Shooting");    
-        var bullet = instance_create(x, y, obj_bullet);
+    if (inputdog_pressed("shoot", _owner._playerSlot)) { 
+        var bulletX = lengthdir_x(35, image_angle);
+        var bulletY = lengthdir_y(35, image_angle);         
+        var bullet = instance_create(x + bulletX, y + bulletY, obj_bullet);
         bullet.direction = image_angle;
     }
 }

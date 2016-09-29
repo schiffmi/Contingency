@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>SPEED_VECTOR =  700 / room_speed;
+            <string>SPEED_VECTOR =  500 / room_speed;
 
 destroy = false;
 
@@ -54,9 +54,14 @@ destroy = false;
             <string>hspd = lengthdir_x(SPEED_VECTOR, direction);
 vspd = lengthdir_y(SPEED_VECTOR, direction);
 
+var nearCollision = scr_bulletCheckCollisions();
 
-scr_bulletCheckCollisions();
-    
+if (nearCollision != noone) {
+    with (nearCollision) {
+        scr_hitByBullet();
+    }
+}
+
 if (!destroy) {
     x += hspd;
     y += vspd;     

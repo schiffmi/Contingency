@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>ICollide</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -72,11 +72,11 @@ else {
 /* Pointing Direction */
 
 var rd = inputdog_direction("rup","rdown","rleft","rright",_playerSlot);
-if (rd != -1) {
-    var dif = angle_difference(rd, _turretDirection);
-    _turretDirection += median(-20, dif, 20);
-        
-    
+var rstrength = inputdog_true_analog(false, _playerSlot);
+if (rstrength != 0 &amp;&amp; rd != -1) {
+    //var dif = angle_difference(rd, _turretDirection);
+   // _turretDirection += median(-10, dif, 10);
+   _turretDirection = rd;
 }
 scr_playerCollideAndMove();
 

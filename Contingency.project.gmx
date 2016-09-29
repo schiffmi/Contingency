@@ -69,6 +69,7 @@
         <script>scripts\inputdog_search_for_gamepads.gml</script>
         <script>scripts\inputdog_search_for_joysticks.gml</script>
         <script>scripts\inputdog_tween.gml</script>
+        <script>scripts\inputdog_true_analog.gml</script>
       </scripts>
       <script>scripts\inputdog_analog.gml</script>
       <script>scripts\inputdog_direction.gml</script>
@@ -77,6 +78,7 @@
       <script>scripts\inputdog_released.gml</script>
       <script>scripts\inputdog_set_rumble.gml</script>
     </scripts>
+    <script>scripts\scr_hitByBullet.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="inputdog">
@@ -111,6 +113,7 @@
       <object>objects\InputManager</object>
       <object>objects\InputRemappingManager</object>
     </objects>
+    <object>objects\ICollide</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_testing</room>
