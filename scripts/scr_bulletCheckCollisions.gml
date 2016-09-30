@@ -10,7 +10,6 @@ while (curr_collision != noone) {
     curr_collision = collision_rectangle(x, y, x + hspd, y + vspd, ICollide, false, false);
 }
 
-
 for (var i = 0; i < ds_list_size(collisions);  i++) {
     collisions[| i].x = collision_item_locations[? collisions[| i]];
     if (nearest == noone || distance_to_object(collisions[| i]) < distance_to_object(nearest)) {

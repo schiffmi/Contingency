@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*enum INPUTS {
+            <string>show_debug_overlay(true);
+/*enum INPUTS {
     UP_PRESSED, UP_ANY,
     DOWN_PRESSED, DOWN_ANY,
     LEFT_PRESSED, LEFT_ANY,

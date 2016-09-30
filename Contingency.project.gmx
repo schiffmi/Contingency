@@ -78,7 +78,8 @@
       <script>scripts\inputdog_released.gml</script>
       <script>scripts\inputdog_set_rumble.gml</script>
     </scripts>
-    <script>scripts\scr_hitByBullet.gml</script>
+    <script>scripts\scr_getHit.gml</script>
+    <script>scripts\scr_projectileNearestCollisionRectangle.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="inputdog">
@@ -87,7 +88,6 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
-    <object>objects\obj_testEnemy</object>
     <object>objects\obj_game</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_turret</object>

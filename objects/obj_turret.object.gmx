@@ -32,7 +32,7 @@ _owner = noone;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -54,13 +54,35 @@ _owner = noone;
     x = _owner.x;
     y = _owner.y;
     if (inputdog_pressed("shoot", _owner._playerSlot)) { 
-        var bulletX = lengthdir_x(35, image_angle);
-        var bulletY = lengthdir_y(35, image_angle);         
+        var bulletX = lengthdir_x(25, image_angle);
+        var bulletY = lengthdir_y(25, image_angle);         
         var bullet = instance_create(x + bulletX, y + bulletY, obj_bullet);
         bullet.direction = image_angle;
     }
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

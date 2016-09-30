@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>SPEED_VECTOR =  500 / room_speed;
+            <string>SPEED_VECTOR =  550 / room_speed;
 
 destroy = false;
+damage = 10;
 
 </string>
           </argument>
@@ -54,19 +55,26 @@ destroy = false;
             <string>hspd = lengthdir_x(SPEED_VECTOR, direction);
 vspd = lengthdir_y(SPEED_VECTOR, direction);
 
-var nearCollision = scr_bulletCheckCollisions();
-
-if (nearCollision != noone) {
-    with (nearCollision) {
-        scr_hitByBullet();
+// run collision checks
+var collisionChecks = ds_list_create();
+ds_list_add(collisionChecks, obj_player);
+ds_list_add(collisionChecks, obj_wall);
+var nearestCollision = scr_projectileCheckMultipleCollisions(collisionChecks);
+if (nearestCollision != noone) {
+    with (nearestCollision) {
+        scr_getHit(other.id);
     }
+    destroy = true;
 }
+ds_list_destroy(collisionChecks);
 
+// move or destroy
+if (bbox_left &lt;= 0 || bbox_right &gt;= room_width || bbox_top &lt; 0 || bbox_bottom &gt; room_height) {
+    destroy = true;
+}
 if (!destroy) {
     x += hspd;
     y += vspd;     
-} else if (bbox_left &lt;= 0 || bbox_right &gt;= room_width || bbox_top &lt; 0 || bbox_bottom &gt; room_height) {
-    instance_destroy();
 }
 else {
     instance_destroy();  
