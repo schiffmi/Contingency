@@ -1,7 +1,6 @@
 /// scr_getHit(whatHitMe::instance)
 var hitBy = argument0;
 if (object_index == obj_player) {
-    hp -= hitBy.damage;
-    image_alpha = hp / 100;
-
+    _hp -= hitBy._damage;
+    image_alpha = _hp / 100;
 }

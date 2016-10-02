@@ -7,7 +7,13 @@
   <NewExtensions>
     <extension index="0">extensions\Input Dog</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_sniperReload</sound>
+    <sound>sound\snd_sniperShoot</sound>
+    <sound>sound\snd_smgShoot</sound>
+    <sound>sound\snd_smgReload</sound>
+    <sound>sound\snd_smgReloadEnd</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_enemy</sprite>
@@ -22,6 +28,7 @@
       <sprite>sprites\sFatButton</sprite>
       <sprite>sprites\sThinButton</sprite>
     </sprites>
+    <sprite>sprites\spr_sniperRifle</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_room</background>
@@ -79,7 +86,22 @@
       <script>scripts\inputdog_set_rumble.gml</script>
     </scripts>
     <script>scripts\scr_getHit.gml</script>
-    <script>scripts\scr_projectileNearestCollisionRectangle.gml</script>
+    <script>scripts\scr_projectileCheckMultipleCollisions.gml</script>
+    <script>scripts\scr_destroyPlayer.gml</script>
+    <script>scripts\scr_playerWeaponControls.gml</script>
+    <scripts name="FSM">
+      <script>scripts\state_machine_init.gml</script>
+    </scripts>
+    <scripts name="weapon_states">
+      <scripts name="smg_states">
+        <script>scripts\gun_state_reload.gml</script>
+        <script>scripts\gun_state_shoot.gml</script>
+        <script>scripts\gun_state_idle.gml</script>
+        <script>scripts\gun_state_inactive.gml</script>
+      </scripts>
+    </scripts>
+    <script>scripts\scr_createBullet.gml</script>
+    <script>scripts\scr_playerPickupWeapon.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="inputdog">
@@ -90,7 +112,8 @@
     <object>objects\obj_player</object>
     <object>objects\obj_game</object>
     <object>objects\obj_wall</object>
-    <object>objects\obj_turret</object>
+    <object>objects\obj_smg</object>
+    <object>objects\obj_sniperRifle</object>
     <object>objects\obj_projectile</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_testTurret</object>
@@ -114,9 +137,10 @@
       <object>objects\InputRemappingManager</object>
     </objects>
     <object>objects\ICollide</object>
+    <object>objects\IWeapon</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room_testing</room>
+    <room>rooms\room_start</room>
     <room>rooms\rm_setupInput</room>
     <room>rooms\rm_map1</room>
     <room>rooms\rm_projectileTesting</room>

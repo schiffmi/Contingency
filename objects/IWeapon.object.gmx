@@ -4,11 +4,11 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
-  <parentName>InputManager</parentName>
+  <persistent>0</persistent>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="7" enumb="10">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,23 +25,25 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///inputs
-inputdog_add_input("left",   vk_left,    inputdog_gp_left_stick_left);
-inputdog_add_input("right",  vk_right,   inputdog_gp_left_stick_right);
-inputdog_add_input("up",     vk_up,      inputdog_gp_left_stick_up);
-inputdog_add_input("down",   vk_down,    inputdog_gp_left_stick_down);
+            <string>depth = 0;
+_owner = noone;
+_click = false;
+_down = false;
+_released = false;
+_reload = false;
+_baseSprite = sprite_index;
+_forceManualReload = false;
 
-inputdog_add_input("shoot",  noone,   gp_shoulderrb);
-inputdog_add_input("boost",  noone,   gp_face1);
-inputdog_add_input("reload",  noone,   gp_face3);
-inputdog_add_input("switch",  noone,   gp_face4);
+// bullet info
+_bulletSpeed = 0;
+_bulletDamage = 0;
 
-
-inputdog_add_input("rleft",   noone,    inputdog_gp_right_stick_left);
-inputdog_add_input("rright",  noone,   inputdog_gp_right_stick_right);
-inputdog_add_input("rup",     noone,      inputdog_gp_right_stick_up);
-inputdog_add_input("rdown",   noone,    inputdog_gp_right_stick_down);
-
+// sounds
+_sndShoot = noone;
+_sndReloadStart = noone;
+_sndReloadEnd = noone;
+_sndReloadEvery = noone;
+show_debug_message("IWeapon Create");
 </string>
           </argument>
         </arguments>

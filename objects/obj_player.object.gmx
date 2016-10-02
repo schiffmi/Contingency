@@ -27,15 +27,23 @@
             <kind>1</kind>
             <string>// setup player
 _playerSlot = 1;
-hp = 100;
-_speedVector = 350 / room_speed;
+_hp = 100;
+_speedVector = 150 / room_speed;
+depth = 1;
+direction = point_direction(x, y, room_width / 2, room_height / 2);
 
 /* Setup weapon */
-depth = 1;
-direction = 0
-_turretDirection = 0;
-_turret = instance_create(x, y, obj_turret);
-_turret._owner = self.id;
+_weaponDirection = direction;
+_weapons = ds_list_create();
+_maxWeapons = 2;
+_weaponsCount = 0;
+_activeWeapon = 0;
+
+scr_playerPickupWeapon(instance_create(x, y, obj_smg));
+scr_playerPickupWeapon(instance_create(x, y, obj_sniperRifle));
+
+
+
 </string>
           </argument>
         </arguments>
@@ -58,12 +66,10 @@ _turret._owner = self.id;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (hp &lt;= 0) {
-    with(_turret) {
-        instance_destroy();
-    }
-    instance_destroy();
+            <string>if (_hp &lt;= 0) {
+    scr_destroyPlayer();   
 }
+
 </string>
           </argument>
         </arguments>
@@ -97,16 +103,78 @@ else {
    _vspd = lengthdir_y(s, d); 
 }
 
-/* Pointing Direction */
+/* Weapon Switch */
+if (inputdog_pressed("switch", _playerSlot)) {
+    _activeWeapon = (_activeWeapon + 1) % _weaponsCount;
+}
 
+/* Move */
+scr_playerCollideAndMove();
+
+/* Weapon Direction */
 var rd = inputdog_direction("rup","rdown","rleft","rright",_playerSlot);
 var rstrength = inputdog_true_analog(false, _playerSlot);
 if (rstrength != 0 &amp;&amp; rd != -1) {
-    //var dif = angle_difference(rd, _turretDirection);
-   // _turretDirection += median(-10, dif, 10);
-   _turretDirection = rd;
+   var dif = angle_difference(rd, _weaponDirection);
+   _weaponDirection += median(-10, dif, 10);
+   //_weaponDirection += rd;
 }
-scr_playerCollideAndMove();
+for (var i = 0; i &lt; _weaponsCount; i++) {
+    _weapons[| i].x = x;
+    _weapons[| i].y = y;
+    _weapons[| i].image_angle = _weaponDirection;
+}
+
+/* Shoot */
+scr_playerWeaponControls();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var right, bottom;
+right = (_playerSlot % 2 == 0);
+bottom = _playerSlot &gt; 2;
+
+var xStart = 64;
+var yStart = 64;
+var margin = 24;
+if (right) xStart = room_width - xStart;
+if (bottom) yStart = room_height - yStart;
+
+if (right) {
+    draw_set_halign(fa_right);
+}
+else {
+    draw_set_halign(fa_left);
+}
+if (bottom) {
+    draw_set_valign(fa_bottom);
+}
+else {
+    draw_set_valign(fa_top);
+}
+draw_set_color(c_white);
+draw_text(xStart, yStart, "Player: " + string(_playerSlot));
+draw_text(xStart, yStart + margin, "Bullets: " + string(_weapons[| _activeWeapon]._bullets));
 
 </string>
           </argument>
