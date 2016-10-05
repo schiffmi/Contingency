@@ -35,15 +35,6 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_inputDetection.gml</script>
-    <script>scripts\scr_playerCollideAndMove.gml</script>
-    <script>scripts\scr_bulletCollideWithWall.gml</script>
-    <script>scripts\scr_bulletCheckCollisions.gml</script>
-    <scripts name="utility">
-      <script>scripts\scr_mergesort.gml</script>
-      <script>scripts\scr_collisionRectangleListMike.gml</script>
-      <script>scripts\scr_collisionRectangleList.gml</script>
-    </scripts>
     <scripts name="inputdog">
       <scripts name="_Custom Controls">
         <script>scripts\inputdog_get_custom_controls_file.gml</script>
@@ -85,10 +76,6 @@
       <script>scripts\inputdog_released.gml</script>
       <script>scripts\inputdog_set_rumble.gml</script>
     </scripts>
-    <script>scripts\scr_getHit.gml</script>
-    <script>scripts\scr_projectileCheckMultipleCollisions.gml</script>
-    <script>scripts\scr_destroyPlayer.gml</script>
-    <script>scripts\scr_playerWeaponControls.gml</script>
     <scripts name="FSM">
       <script>scripts\state_machine_init.gml</script>
     </scripts>
@@ -100,8 +87,27 @@
         <script>scripts\gun_state_inactive.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\scr_createBullet.gml</script>
-    <script>scripts\scr_playerPickupWeapon.gml</script>
+    <scripts name="utility">
+      <script>scripts\scr_mergesort.gml</script>
+      <script>scripts\scr_collisionRectangleListMike.gml</script>
+      <script>scripts\scr_collisionRectangleList.gml</script>
+      <script>scripts\scr_inputDetection.gml</script>
+    </scripts>
+    <scripts name="unused">
+      <script>scripts\scr_bulletCheckCollisions.gml</script>
+      <script>scripts\scr_bulletCollideWithWall.gml</script>
+    </scripts>
+    <scripts name="player">
+      <script>scripts\scr_getHit.gml</script>
+      <script>scripts\scr_destroyPlayer.gml</script>
+      <script>scripts\scr_playerWeaponControls.gml</script>
+      <script>scripts\scr_playerPickupWeapon.gml</script>
+      <script>scripts\scr_playerCollideAndMove.gml</script>
+    </scripts>
+    <scripts name="projectiles">
+      <script>scripts\scr_createBullet.gml</script>
+      <script>scripts\scr_projectileCheckMultipleCollisions.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <fonts name="inputdog">

@@ -3,7 +3,7 @@ var SLOT = argument0;
 var INPUT = argument1;
 var DIRECT_INPUT = argument2;
 var VAL = 0;
-
+var INPUT_MANAGER = inputdog_find_inputmanager_child_by_gamepad(SLOT, DIRECT_INPUT);
 if(DIRECT_INPUT)
     switch(INPUT)
     {   
@@ -24,6 +24,29 @@ if(DIRECT_INPUT)
 else
     switch(INPUT)
     {   
+        case inputdog_gp_left_stick_direction:
+            VAL = point_direction(0, 0,
+                                    clamp(gamepad_axis_value(SLOT, gp_axislh),-1,1),
+                                    clamp(gamepad_axis_value(SLOT, gp_axislv),-1,1));
+            break;
+        case inputdog_gp_left_stick_intensity:
+            VAL = point_distance(0, 0,
+                                    clamp(gamepad_axis_value(SLOT, gp_axislh),-1,1),
+                                    clamp(gamepad_axis_value(SLOT, gp_axislv),-1,1));
+            if (abs(VAL) < INPUT_MANAGER.analogDeadzone) VAL = 0;
+            break;
+        case inputdog_gp_right_stick_direction:
+            VAL = point_direction(0, 0,
+                                    clamp(gamepad_axis_value(SLOT, gp_axisrh),-1,1),
+                                    clamp(gamepad_axis_value(SLOT, gp_axisrv),-1,1));
+            break;
+        case inputdog_gp_right_stick_intensity:
+            VAL = point_distance(0, 0,
+                                    clamp(gamepad_axis_value(SLOT, gp_axisrh),-1,1),
+                                    clamp(gamepad_axis_value(SLOT, gp_axisrv),-1,1));
+            if (abs(VAL) < INPUT_MANAGER.analogDeadzone) VAL = 0;
+            break;
+    
         case inputdog_gp_left_stick_left:  VAL = clamp(-gamepad_axis_value(SLOT,gp_axislh),0,1); break;
         case inputdog_gp_left_stick_right: VAL = clamp( gamepad_axis_value(SLOT,gp_axislh),0,1); break;
         case inputdog_gp_left_stick_up:    VAL = clamp(-gamepad_axis_value(SLOT,gp_axislv),0,1); break;
@@ -37,8 +60,8 @@ else
         default:                 if(gamepad_button_check(SLOT,INPUT))               VAL = 1; break;
     }
 
-var INPUT_MANAGER = inputdog_find_inputmanager_child_by_gamepad(SLOT, DIRECT_INPUT);
-if(VAL < INPUT_MANAGER.analogDeadzone)
-    VAL = 0;
+
+//if(VAL < INPUT_MANAGER.analogDeadzone)
+//    VAL = 0;
     
 return VAL;

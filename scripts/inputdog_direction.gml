@@ -16,6 +16,7 @@ if(argument_count>4)
     INPUT_MANAGER = inputdog_find_inputmanager_child_by_player(PLAYER);
 }
 
+
 if(point_distance(0,0, -inputdog_analog(INPUT_LEFT,PLAYER)+inputdog_analog(INPUT_RIGHT,PLAYER),
                             -inputdog_analog(INPUT_UP,PLAYER)+inputdog_analog(INPUT_DOWN,PLAYER)) == 0) 
     return -1;

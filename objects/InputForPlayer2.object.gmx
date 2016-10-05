@@ -26,20 +26,25 @@
           <argument>
             <kind>1</kind>
             <string>///inputs
-inputdog_add_input("left",   ord("A"),   inputdog_gp_left_stick_left);
-inputdog_add_input("right",  ord("D"),   inputdog_gp_left_stick_right);
-inputdog_add_input("up",     ord("W"),   inputdog_gp_left_stick_up);
-inputdog_add_input("down",   ord("S"),   inputdog_gp_left_stick_down);
+inputdog_add_input("leftDir", noone, inputdog_gp_left_stick_direction);
+inputdog_add_input("rightDir", noone, inputdog_gp_right_stick_direction);
+inputdog_add_input("leftIntensity", noone, inputdog_gp_left_stick_intensity);
+inputdog_add_input("rightIntensity", noone, inputdog_gp_right_stick_intensity);
+
+//inputdog_add_input("left",   ord("A"),   inputdog_gp_left_stick_left);
+//inputdog_add_input("right",  ord("D"),   inputdog_gp_left_stick_right);
+//inputdog_add_input("up",     ord("W"),   inputdog_gp_left_stick_up);
+//inputdog_add_input("down",   ord("S"),   inputdog_gp_left_stick_down);
 
 inputdog_add_input("shoot",  noone,   gp_shoulderrb);
 inputdog_add_input("boost",  noone,   gp_face1);
 inputdog_add_input("reload",  noone,   gp_face3);
 inputdog_add_input("switch",  noone,   gp_face4);
 
-inputdog_add_input("rleft",   noone,    inputdog_gp_right_stick_left);
-inputdog_add_input("rright",  noone,   inputdog_gp_right_stick_right);
-inputdog_add_input("rup",     noone,      inputdog_gp_right_stick_up);
-inputdog_add_input("rdown",   noone,    inputdog_gp_right_stick_down);
+//inputdog_add_input("rleft",   noone,    inputdog_gp_right_stick_left);
+//inputdog_add_input("rright",  noone,   inputdog_gp_right_stick_right);
+//inputdog_add_input("rup",     noone,      inputdog_gp_right_stick_up);
+//inputdog_add_input("rdown",   noone,    inputdog_gp_right_stick_down);
 
 
 </string>

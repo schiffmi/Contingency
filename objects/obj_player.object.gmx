@@ -92,12 +92,12 @@ scr_playerPickupWeapon(instance_create(x, y, obj_sniperRifle));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var d = inputdog_direction("up","down","left","right",_playerSlot);
-direction = d;
-if (d == -1) { _hspd = 0; _vspd = 0; }
-else {   
-  var s = point_distance(0,0, -inputdog_analog("left",_playerSlot)+inputdog_analog("right",_playerSlot),
-                                -inputdog_analog("up",_playerSlot)+inputdog_analog("down",_playerSlot));
+            <string>var s = inputdog_analog("leftIntensity", _playerSlot);
+var d = inputdog_analog("leftDir", _playerSlot);
+if (s == 0) {
+    _hspd = 0; _vspd = 0; 
+} else {   
+   direction = d; 
    s *= _speedVector;
    _hspd = lengthdir_x(s, d);
    _vspd = lengthdir_y(s, d); 
@@ -112,9 +112,9 @@ if (inputdog_pressed("switch", _playerSlot)) {
 scr_playerCollideAndMove();
 
 /* Weapon Direction */
-var rd = inputdog_direction("rup","rdown","rleft","rright",_playerSlot);
-var rstrength = inputdog_true_analog(false, _playerSlot);
-if (rstrength != 0 &amp;&amp; rd != -1) {
+var rd = inputdog_analog("rightDir", _playerSlot);
+var rstrength = inputdog_analog("rightIntensity", _playerSlot);
+if (rstrength != 0) {
    var dif = angle_difference(rd, _weaponDirection);
    _weaponDirection += median(-10, dif, 10);
    //_weaponDirection += rd;

@@ -147,6 +147,26 @@
           <value>110</value>
           <hidden>0</hidden>
         </constant>
+        <constant>
+          <name>inputdog_gp_left_stick_direction</name>
+          <value>111</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>inputdog_gp_left_stick_intensity</name>
+          <value>112</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>inputdog_gp_right_stick_direction</name>
+          <value>113</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>inputdog_gp_right_stick_intensity</name>
+          <value>114</value>
+          <hidden>0</hidden>
+        </constant>
       </constants>
     </file>
   </files>
