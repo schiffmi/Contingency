@@ -102,7 +102,12 @@
       <script>scripts\scr_destroyPlayer.gml</script>
       <script>scripts\scr_playerWeaponControls.gml</script>
       <script>scripts\scr_playerPickupWeapon.gml</script>
+      <script>scripts\scr_playerWeaponMoveAndAim.gml</script>
       <script>scripts\scr_playerCollideAndMove.gml</script>
+      <scripts name="states">
+        <script>scripts\player_state_standard.gml</script>
+        <script>scripts\player_state_sprinting.gml</script>
+      </scripts>
     </scripts>
     <scripts name="projectiles">
       <script>scripts\scr_createBullet.gml</script>

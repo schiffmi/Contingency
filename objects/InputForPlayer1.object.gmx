@@ -39,6 +39,7 @@ inputdog_add_input("shoot",  noone,   gp_shoulderrb);
 inputdog_add_input("boost",  noone,   gp_face1);
 inputdog_add_input("reload",  noone,   gp_face3);
 inputdog_add_input("switch",  noone,   gp_face4);
+inputdog_add_input("sprint", noone, gp_stickl);
 
 
 //inputdog_add_input("rleft",   noone,    inputdog_gp_right_stick_left);
